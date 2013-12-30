@@ -34,9 +34,12 @@
             this.lblServerStatus = new System.Windows.Forms.Label();
             this.btnSwitch = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.TaskbarIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.lblIP = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.MainStatusStrip = new System.Windows.Forms.StatusStrip();
+            this.TCMCredit = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ConnectedUserCount = new System.Windows.Forms.ToolStripStatusLabel();
+            this.MainStatusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblStatus
@@ -63,7 +66,7 @@
             // btnSwitch
             // 
             this.btnSwitch.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSwitch.Location = new System.Drawing.Point(12, 111);
+            this.btnSwitch.Location = new System.Drawing.Point(12, 91);
             this.btnSwitch.Name = "btnSwitch";
             this.btnSwitch.Size = new System.Drawing.Size(166, 28);
             this.btnSwitch.TabIndex = 4;
@@ -74,7 +77,7 @@
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(184, 111);
+            this.btnExit.Location = new System.Drawing.Point(184, 91);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(92, 28);
             this.btnExit.TabIndex = 5;
@@ -82,15 +85,16 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // notifyIcon1
+            // TaskbarIcon
             // 
-            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "Web Input Server";
-            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick_1);
+            this.TaskbarIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("TaskbarIcon.Icon")));
+            this.TaskbarIcon.Text = "Web Input Server";
+            this.TaskbarIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick_1);
             // 
             // lblIP
             // 
             this.lblIP.AutoSize = true;
+            this.lblIP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblIP.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIP.ForeColor = System.Drawing.Color.Navy;
             this.lblIP.Location = new System.Drawing.Point(5, 51);
@@ -100,40 +104,52 @@
             this.lblIP.Text = "http://";
             this.lblIP.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lblIP.Visible = false;
+            this.lblIP.Click += new System.EventHandler(this.lblIP_Click);
             // 
-            // linkLabel1
+            // MainStatusStrip
             // 
-            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.DarkRed;
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linkLabel1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.LinkColor = System.Drawing.Color.Navy;
-            this.linkLabel1.Location = new System.Drawing.Point(174, 154);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(113, 13);
-            this.linkLabel1.TabIndex = 3;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "TheyConfuse.Me";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.MainStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TCMCredit,
+            this.ConnectedUserCount});
+            this.MainStatusStrip.Location = new System.Drawing.Point(0, 129);
+            this.MainStatusStrip.Name = "MainStatusStrip";
+            this.MainStatusStrip.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.MainStatusStrip.Size = new System.Drawing.Size(299, 22);
+            this.MainStatusStrip.TabIndex = 8;
+            this.MainStatusStrip.Text = "statusStrip1";
+            // 
+            // TCMCredit
+            // 
+            this.TCMCredit.ForeColor = System.Drawing.Color.Maroon;
+            this.TCMCredit.Name = "TCMCredit";
+            this.TCMCredit.Size = new System.Drawing.Size(97, 17);
+            this.TCMCredit.Text = "TheyConfuse.me";
+            this.TCMCredit.Click += new System.EventHandler(this.TCMCredit_Click);
+            // 
+            // ConnectedUserCount
+            // 
+            this.ConnectedUserCount.Name = "ConnectedUserCount";
+            this.ConnectedUserCount.Size = new System.Drawing.Size(0, 17);
+            this.ConnectedUserCount.Visible = false;
             // 
             // frmWebInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(299, 176);
+            this.ClientSize = new System.Drawing.Size(299, 151);
+            this.Controls.Add(this.MainStatusStrip);
             this.Controls.Add(this.lblIP);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSwitch);
-            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.lblServerStatus);
             this.Controls.Add(this.lblStatus);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(315, 215);
-            this.MinimumSize = new System.Drawing.Size(315, 215);
             this.Name = "frmWebInput";
             this.Text = "Web Input Server";
             this.Load += new System.EventHandler(this.frmWebInput_Load);
+            this.MainStatusStrip.ResumeLayout(false);
+            this.MainStatusStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,9 +161,11 @@
         private System.Windows.Forms.Label lblServerStatus;
         private System.Windows.Forms.Button btnSwitch;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.NotifyIcon TaskbarIcon;
         private System.Windows.Forms.Label lblIP;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.StatusStrip MainStatusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel TCMCredit;
+        private System.Windows.Forms.ToolStripStatusLabel ConnectedUserCount;
     }
 }
 
