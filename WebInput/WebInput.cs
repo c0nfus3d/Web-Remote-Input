@@ -42,7 +42,7 @@ namespace WebInput
             set
             {
                 _connectedUsers = value;
-                MyForm.ConnectedUserCount.Text = String.Format("Connected Users: {0}", _connectedUsers);
+                MyForm.ConnectedUserCount.Text = String.Format("Connected Users: {0}", value);
             }
         }
 
@@ -71,28 +71,6 @@ namespace WebInput
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmWebInput_FormClosing);
 
         }
-
-        /**
-         * Set the window state
-         * @param string newState the new window state
-         */
-        public static void setWindowState(string newState)
-        {
-            frmWebInput frmWebInput = new frmWebInput();
-
-            if (newState == "minimize")
-            {
-                frmWebInput.WindowState = FormWindowState.Minimized;
-            }
-            else if (newState == "maximize")
-            {
-                frmWebInput.WindowState = FormWindowState.Maximized;
-            }
-            else
-            {
-                frmWebInput.WindowState = FormWindowState.Normal;
-            }
-        }
         
         /**
          * Turns the service on/off
@@ -116,7 +94,7 @@ namespace WebInput
                     lblIP.Text = "http://" + LocalIPAddress() + ":" + port;
                     lblIP.Visible = true;
 
-                    connectedUsers = connectedUsers;
+                    connectedUsers = 0;
                     ConnectedUserCount.Visible = true;
                 }
                 catch (HttpListenerException Ex)
@@ -211,7 +189,7 @@ namespace WebInput
                     connectedUsers = connectedUsers + 1;
 
                     QRCode.Close();
-                    WebInput.frmWebInput.setWindowState("minimize");
+                    MyForm.WindowState = FormWindowState.Minimized;
                 }
 
                 /**
