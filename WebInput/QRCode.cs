@@ -1,5 +1,6 @@
 ﻿/**
  * Web Input Remote
+ * @package VirtualWebInput
  * @desc Remote control your computer from the web.
  * @author Josh Richard <josh.richard@gmail.com>
  * @see http://theyconfuse.me/code/Web-Remote-Input
