@@ -5,10 +5,6 @@ Remote Control Your Computer From the Web
 
 [**Visit Website**](http://theyconfuse.me/code/Web-Remote-Input)
 
-### Release Notes ###
-
-The `space` and `enter` key do not seem to work properly at this moment.
-
 ### License ###
 
 Copyright (C) 2013 Joshua Richard
