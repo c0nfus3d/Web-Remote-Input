@@ -4,8 +4,8 @@
  * @desc Remote control your computer from the web.
  * @author Josh Richard <josh.richard@gmail.com>
  * @see http://theyconfuse.me/code/Web-Remote-Input
- * @license GPL
- * @license http://theyconfuse.me/license/gpl
+ * @license Apache License, Version 2.0
+ * @license http://theyconfuse.me/license/apache2
  */
 
 using System;

@@ -2,6 +2,19 @@
 <html>
 
 <head>
+
+<!--
+	/**
+	 * Web Input Remote
+	 * @package VirtualWebInput
+	 * @desc Remote control your computer from the web.
+	 * @author Josh Richard <josh.richard@gmail.com>
+	 * @see http://theyconfuse.me/code/Web-Remote-Input
+	 * @license Apache License, Version 2.0
+	 * @license http://theyconfuse.me/license/apache2
+	 */
+-->
+
     <title>Remote</title>
     <meta name="viewport" content="width=980, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
     <meta name="apple-mobile-web-app-capable" content="yes" />

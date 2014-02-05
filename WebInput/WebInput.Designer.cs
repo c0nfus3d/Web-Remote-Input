@@ -39,7 +39,11 @@
             this.MainStatusStrip = new System.Windows.Forms.StatusStrip();
             this.TCMCredit = new System.Windows.Forms.ToolStripStatusLabel();
             this.ConnectedUserCount = new System.Windows.Forms.ToolStripStatusLabel();
+            this.TaskbarIconMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.MenuToggle = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.MainStatusStrip.SuspendLayout();
+            this.TaskbarIconMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblStatus
@@ -87,9 +91,10 @@
             // 
             // TaskbarIcon
             // 
+            this.TaskbarIcon.ContextMenuStrip = this.TaskbarIconMenu;
             this.TaskbarIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("TaskbarIcon.Icon")));
             this.TaskbarIcon.Text = "Web Input Server";
-            this.TaskbarIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick_1);
+            this.TaskbarIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.TaskbarIconMenu_MouseClick);
             // 
             // lblIP
             // 
@@ -121,9 +126,11 @@
             // TCMCredit
             // 
             this.TCMCredit.ForeColor = System.Drawing.Color.Maroon;
+            this.TCMCredit.LinkColor = System.Drawing.Color.Maroon;
             this.TCMCredit.Name = "TCMCredit";
-            this.TCMCredit.Size = new System.Drawing.Size(97, 17);
+            this.TCMCredit.Size = new System.Drawing.Size(89, 17);
             this.TCMCredit.Text = "TheyConfuse.me";
+            this.TCMCredit.VisitedLinkColor = System.Drawing.Color.Maroon;
             this.TCMCredit.Click += new System.EventHandler(this.TCMCredit_Click);
             // 
             // ConnectedUserCount
@@ -131,6 +138,28 @@
             this.ConnectedUserCount.Name = "ConnectedUserCount";
             this.ConnectedUserCount.Size = new System.Drawing.Size(0, 17);
             this.ConnectedUserCount.Visible = false;
+            // 
+            // TaskbarIconMenu
+            // 
+            this.TaskbarIconMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuToggle,
+            this.MenuExit});
+            this.TaskbarIconMenu.Name = "TaskbarIconMenu";
+            this.TaskbarIconMenu.Size = new System.Drawing.Size(118, 48);
+            // 
+            // MenuToggle
+            // 
+            this.MenuToggle.Name = "MenuToggle";
+            this.MenuToggle.Size = new System.Drawing.Size(117, 22);
+            this.MenuToggle.Text = "&Turn On";
+            this.MenuToggle.Click += new System.EventHandler(this.MenuToggle_Click);
+            // 
+            // MenuExit
+            // 
+            this.MenuExit.Name = "MenuExit";
+            this.MenuExit.Size = new System.Drawing.Size(117, 22);
+            this.MenuExit.Text = "E&xit";
+            this.MenuExit.Click += new System.EventHandler(this.MenuExit_Click);
             // 
             // frmWebInput
             // 
@@ -145,11 +174,14 @@
             this.Controls.Add(this.lblStatus);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(307, 178);
+            this.MinimumSize = new System.Drawing.Size(307, 178);
             this.Name = "frmWebInput";
             this.Text = "Web Input Server";
             this.Load += new System.EventHandler(this.frmWebInput_Load);
             this.MainStatusStrip.ResumeLayout(false);
             this.MainStatusStrip.PerformLayout();
+            this.TaskbarIconMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,6 +198,9 @@
         private System.Windows.Forms.StatusStrip MainStatusStrip;
         private System.Windows.Forms.ToolStripStatusLabel TCMCredit;
         private System.Windows.Forms.ToolStripStatusLabel ConnectedUserCount;
+        private System.Windows.Forms.ContextMenuStrip TaskbarIconMenu;
+        private System.Windows.Forms.ToolStripMenuItem MenuToggle;
+        private System.Windows.Forms.ToolStripMenuItem MenuExit;
     }
 }
 

@@ -1,11 +1,11 @@
 ﻿/**
  * Web Input Remote
- * @package VirtualWebInput
+ * @package Web-Remote-Input
  * @desc Remote control your computer from the web.
  * @author Josh Richard <josh.richard@gmail.com>
  * @see http://theyconfuse.me/code/Web-Remote-Input
- * @license GPL
- * @license http://theyconfuse.me/license/gpl
+ * @license Apache License, Version 2.0
+ * @license http://theyconfuse.me/license/apache2
  */
 
 using System;
@@ -21,6 +21,7 @@ using System.Threading;
 using System.Net;
 using System.IO;
 using System.Diagnostics;
+using System.Reflection;
 
 namespace WebInput
 {
@@ -92,6 +93,7 @@ namespace WebInput
 
                     status = lblServerStatus.Text = "On";
                     btnSwitch.Text = "Turn Off";
+                    MenuToggle.Text = "Turn Off";
 
                     lblIP.Text = "http://" + LocalIPAddress() + ":" + port;
                     lblIP.Visible = true;
@@ -112,6 +114,7 @@ namespace WebInput
                 t.Abort();
                 status = lblServerStatus.Text = "Off";
                 btnSwitch.Text = "Turn On";
+                MenuToggle.Text = "Turn On";
 
                 connectedUsers = 0;
                 lblIP.Visible = false;
@@ -376,7 +379,7 @@ namespace WebInput
          * Open the application if the icon is clicked from the system tray
          * @return void
          */
-        private void notifyIcon1_MouseDoubleClick_1(object sender, MouseEventArgs e)
+        private void TaskbarIconMenu_MouseClick(object sender, MouseEventArgs e)
         {
             this.Show();
             this.WindowState = FormWindowState.Normal;
@@ -415,7 +418,7 @@ namespace WebInput
          */
         private void frmWebInput_Load(object sender, EventArgs e)
         {
-
+            this.Text += " -- Version " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
 
         /**
@@ -463,6 +466,63 @@ namespace WebInput
         private void TCMCredit_Click(object sender, EventArgs e)
         {
             Process.Start("http://theyconfuse.me");
+        }
+
+        /**
+         * Turns the service on/off
+         * @return void
+         */
+        private void MenuToggle_Click(object sender, EventArgs e)
+        {
+            if (status == "Off")
+            {
+                try
+                {
+                    listener = new HttpListener();
+                    listener.Start();
+                    listener.Prefixes.Add("http://+:" + port + "/");
+                    t = new Thread(new ThreadStart(clientListener));
+                    t.Start();
+
+                    status = lblServerStatus.Text = "On";
+                    btnSwitch.Text = "Turn Off";
+                    MenuToggle.Text = "Turn Off";
+
+                    lblIP.Text = "http://" + LocalIPAddress() + ":" + port;
+                    lblIP.Visible = true;
+
+                    ConnectedUserCount.Visible = true;
+                    connectedUsers = 0;
+                }
+                catch (HttpListenerException Ex)
+                {
+                    lblIP.Text = "Could not start service.";
+                    lblIP.Visible = true;
+                }
+            }
+
+            else
+            {
+                listener.Abort();
+                t.Abort();
+                status = lblServerStatus.Text = "Off";
+                btnSwitch.Text = "Turn On";
+                MenuToggle.Text = "Turn On";
+
+                connectedUsers = 0;
+                lblIP.Visible = false;
+                ConnectedUserCount.Visible = false;
+            }
+        }
+
+        /**
+         * Exit the Application
+         * @return void
+         */
+        private void MenuExit_Click(object sender, EventArgs e)
+        {
+            _exit = true;
+            Application.Exit();
         }
     }
 }
