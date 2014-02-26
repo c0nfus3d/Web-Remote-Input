@@ -1,18 +1,21 @@
-# Web Remote Input #
-----------
+# Web Remote Input
 
 Remote Control Your Computer From the Web
 
 [**Visit Website**](http://theyconfuse.me/code/Web-Remote-Input) -- [**Download WebInput.exe**](http://theyconfuse.me/downloads/binary/WebInput.exe)
 
-## Release Notes ##
+## Screenshots
+
+![](http://theyconfuse.me/uploads/web-input-server-remote-screenshot.jpg)
+![](http://theyconfuse.me/uploads/web-input-server-screenshot.jpg)
+
+## Release Notes
 
 **Version 0.4.1** - Feb. 2014
+ - Mouse movements are a bit glitchy.
+ - Some keyboard keys aren't handled properly yet.
 
-- Mouse movements are a bit glitchy.
-- Some keyboard keys aren't handled properly yet.
-
-## License ##
+## License
 
 Copyright 2014 Joshua Richard
 
