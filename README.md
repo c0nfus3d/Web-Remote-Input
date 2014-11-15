@@ -2,13 +2,6 @@
 
 Remote Control Your Computer From the Web
 
-[**Visit Website**](http://theyconfuse.me/code/Web-Remote-Input) -- [**Download WebInput.exe**](http://theyconfuse.me/downloads/binary/WebInput.exe)
-
-## Screenshots
-
-![](http://theyconfuse.me/uploads/web-input-server-remote-screenshot.jpg)
-![](http://theyconfuse.me/uploads/web-input-server-screenshot.jpg)
-
 ## Release Notes
 
 **Version 0.4.1** - Feb. 2014
@@ -17,7 +10,9 @@ Remote Control Your Computer From the Web
 
 ## License
 
-Copyright 2014 Joshua Richard
+[Copyright © Joshua Richard, 2013 - 2014](http://www.joshrichard.net)
+
+[Apache Version 2 License](http://www.joshrichard.net/licenses/apache2)
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -30,5 +25,3 @@ Copyright 2014 Joshua Richard
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-
-[Apache License, Version 2.0](http://theyconfuse.me/license/apache2) -- <http://theyconfuse.me/license/apache2>
