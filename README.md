@@ -10,6 +10,6 @@ Remote Control Your Computer From the Web
 
 ## License
 
-[Copyright 2013 - 2015 Joshua Richard](http://www.joshrichard.net)
+MIT License
 
-[MIT License](https://joshrichard.net/licenses/mit)
+[Copyright 2013 - 2015 Joshua Richard](https://github.com/c0nfus3d)
